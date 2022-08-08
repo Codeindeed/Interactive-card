@@ -54,7 +54,7 @@ class RealTimeInput {
       let label = this.el[1].nextElementSibling;
       let input = this.el[1].value;
       let newValue = input.replace(/[^\d]/g, "");
-      let limit = newValue.substring(0, 16);
+      var limit = newValue.substring(0, 16);
       let newSection = limit.match(/\d{1,4}/g);
       if (newSection !== null) {
         newValue = newSection.join(" ");
@@ -95,7 +95,7 @@ class RealTimeInput {
       this.errorMessage(0, "Empty field fill in CardName");
       isEroor = true;
     }
-    if (this.el[1].value === "" || this.el[1].value.length < 16) {
+    if (this.el[1].value === "" || this.el[1].value.length < 16 || limit < 16) {
       this.errorMessage(1, `fill in CardNumber Appropriately`);
       isEroor = true;
     }
@@ -122,7 +122,7 @@ class RealTimeInput {
       }
       thankstext.textContent = `THANK YOU ${
         thanksText === undefined ? "!" : thanksText
-      }`;
+      } `;
       form.querySelectorAll("label").forEach((labels) => {
         labels.textContent = "";
         labels.classList.remove("danger");
