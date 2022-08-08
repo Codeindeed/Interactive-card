@@ -15,6 +15,7 @@ let verve = /^(?:50[067][180]|6500)(?:[0-9]{15})$/;
 //realtime data switch
 class RealTimeInput {
   constructor() {
+    this.limit = "";
     this.el = cardInput;
     this.el[0].addEventListener("keyup", () => {
       this.cardName();
@@ -54,8 +55,8 @@ class RealTimeInput {
       let label = this.el[1].nextElementSibling;
       let input = this.el[1].value;
       let newValue = input.replace(/[^\d]/g, "");
-      var limit = newValue.substring(0, 16);
-      let newSection = limit.match(/\d{1,4}/g);
+      this.limit = newValue.substring(0, 16);
+      let newSection = this.limit.match(/\d{1,4}/g);
       if (newSection !== null) {
         newValue = newSection.join(" ");
       }
@@ -63,11 +64,11 @@ class RealTimeInput {
         this.el[1].value = newValue;
       }
       cardNumber.textContent = this.el[1].value;
-      if (limit.match(masterCardRegex)) label.textContent = `Mastercard`;
+      if (this.limit.match(masterCardRegex)) label.textContent = `Mastercard`;
 
-      if (limit.match(visaCardRegex)) label.textContent = `Visacard`;
+      if (this.limit.match(visaCardRegex)) label.textContent = `Visacard`;
 
-      if (limit.match(verve)) label.textContent = `Vervecard`;
+      if (this.limit.match(verve)) label.textContent = `Vervecard`;
     }
   }
   cardExpDate(num, el) {
@@ -95,7 +96,11 @@ class RealTimeInput {
       this.errorMessage(0, "Empty field fill in CardName");
       isEroor = true;
     }
-    if (this.el[1].value === "" || this.el[1].value.length < 16 || limit < 16) {
+    if (
+      this.el[1].value === "" ||
+      this.el[1].value.length < 16 ||
+      this.limit < 16
+    ) {
       this.errorMessage(1, `fill in CardNumber Appropriately`);
       isEroor = true;
     }
