@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="index.js"></script>
+  <title>Frontend Mentor | Interactive card details form</title>
+</head>
+
+<body>
+  <main class="main">
+    <section class="container__cards">
+      <div class="card1">
+        <div class="logo">
+          <img src="./images/card-logo.svg" alt="">
+        </div>
+        <div class="card__content">
+          <h1 class="card__texts" id="cardvalue">0000 0000 0000 0000</h1>
+        </div>
+        <div class="card__details">
+          <p class="name" id="cardname">Jane Appleseed</p>
+          <p class="date"><span id="carddate">00</span>/<span id="cardyear">00</span> </p>
+        </div>
+      </div>
+      <div class="card2">
+        <div class="card2__content">
+          <h1 class="card2__texts" id="cardcvc">000</h1>
+        </div>
+      </div>
+    </section>
+    <section class="contents__container">
+      <form class="container displayz">
+        <div class="cardcontainer">
+          <p class="text">Cardholder Name</p>
+          <input type="text" placeholder="Jane Appleseed" id="holderName">
+          <label for="holderName"></label>
+        </div>
+        <div class="cardcontainer">
+          <p class="text">Card Number</p>
+          <input type="text" placeholder="1234 5678 9123 0000" id="holderNumber">
+          <label for="holderNumber"></label>
+        </div>
+        <div class="card__dates">
+          <div class="cardcontainer">
+            <p class="text">EXP.DATE</p>
+            <input maxlength="2" type="tel" placeholder="09" id="holderdate">
+            <label for="holderdate"> </label>
+          </div>
+          <div class="cardcontainer">
+            <p class="text">(MM/YY)</p>
+            <input maxlength="2" type="tel" placeholder="YY" id="holdermonth">
+            <label for="holdermonth"> </label>
+          </div>
+          <div class="cardcontainer cvc">
+            <p class="text">CVC</p>
+            <input maxlength="3" type="tel" placeholder="e.g.123" id="holdercvc">
+            <label for="holdercvc"> </label>
+          </div>
+        </div>
+        <button class="button" id="button" type="submit">Confirm</button>
+      </form>
+      <div class="thankyou">
+        <div class="image">
+          <img src="./images/icon-complete.svg" alt="thank you">
+        </div>
+
+        <div class="te">
+          <h1 class="thanks__text">THANK YOU</h1>
+          <p class="thanks__texts">
+            We've added your card details
+            Continue
+          </p>
+        </div>
+        <button id="thanksbutton" class="thanks__button">continue</button>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
+
+
+<!-- Completed state start -->
+
+<!-- Thank you!
+  -->
