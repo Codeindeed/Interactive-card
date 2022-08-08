@@ -118,7 +118,7 @@ class RealTimeInput {
       let thankstext = thankYouCard.querySelector("h1");
       if (this.el[0].value.length > 5) {
         let sliced = this.el[0].value.split(" ");
-        thanksText = sliced[0];
+        thanksText = sliced[0].toLocaleUpperCase();
       }
       thankstext.textContent = `THANK YOU ${
         thanksText === undefined ? "!" : thanksText
